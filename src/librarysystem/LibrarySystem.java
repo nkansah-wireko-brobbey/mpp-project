@@ -43,9 +43,24 @@ public class LibrarySystem extends JFrame implements LibWindow {
 			
 		}
 	}
+
+	private void setWindowProperties(){
+			            LibrarySystem.INSTANCE.setTitle("Library Project");
+	            LibrarySystem.INSTANCE.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	            LibrarySystem.INSTANCE.init();
+
+//	            centerFrameOnDesktop(LibrarySystem.INSTANCE);
+//	            LibrarySystem.INSTANCE.setVisible(true);
+		Util.centerFrameOnDesktop(INSTANCE);
+	}
     
-    
-    private LibrarySystem() {}
+    private LibrarySystem() {
+
+
+
+
+	}
     
     public void init() {
     	formatContentPane();

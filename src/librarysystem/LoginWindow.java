@@ -59,7 +59,10 @@ public class LoginWindow extends JFrame implements LibWindow {
 	}
 	
 	/* This class is a singleton */
-    private LoginWindow () {}
+    private LoginWindow () {
+
+
+	}
     
     public void init() {     		
     		mainPanel = new JPanel();
@@ -77,6 +80,8 @@ public class LoginWindow extends JFrame implements LibWindow {
     		isInitialized(true);
     		pack();
     		//setSize(660, 500);
+			Util.centerFrameOnDesktop(INSTANCE);
+			INSTANCE.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     	
     }
