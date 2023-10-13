@@ -25,7 +25,7 @@ public class LibrarySystem extends JFrame implements LibWindow {
 	JPanel mainPanel;
 	JMenuBar menuBar;
     JMenu options;
-    JMenuItem login, allBookIds, allMemberIds; 
+    JMenuItem login, allBookIds, allMemberIds, addMember;
     String pathToImage;
     private boolean isInitialized = false;
     
@@ -33,7 +33,8 @@ public class LibrarySystem extends JFrame implements LibWindow {
     	LibrarySystem.INSTANCE,
 		LoginWindow.INSTANCE,
 		AllMemberIdsWindow.INSTANCE,	
-		AllBookIdsWindow.INSTANCE
+		AllBookIdsWindow.INSTANCE,
+			AddMemberWindow.INSTANCE
 	};
     	
 	public static void hideAllWindows() {
@@ -107,9 +108,22 @@ public class LibrarySystem extends JFrame implements LibWindow {
  	   allBookIds.addActionListener(new AllBookIdsListener());
  	   allMemberIds = new JMenuItem("All Member Ids");
  	   allMemberIds.addActionListener(new AllMemberIdsListener());
+		addMember= new JMenuItem("Add Member");
+		addMember.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				LibrarySystem.hideAllWindows();
+				AddMemberWindow.INSTANCE.init();
+				Util.centerFrameOnDesktop(LoginWindow.INSTANCE);
+				AddMemberWindow.INSTANCE.setVisible(true);
+			}
+		});
+
+
  	   options.add(login);
  	   options.add(allBookIds);
  	   options.add(allMemberIds);
+		options.add(addMember);
     }
     
     class LoginListener implements ActionListener {
