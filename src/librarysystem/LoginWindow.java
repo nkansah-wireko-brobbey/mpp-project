@@ -18,7 +18,9 @@ import javax.swing.JOptionPane;
 
 import business.ControllerInterface;
 
+import business.LoginException;
 import business.SystemController;
+import dataaccess.Auth;
 
 
 public class LoginWindow extends JFrame implements LibWindow {
@@ -191,10 +193,40 @@ public class LoginWindow extends JFrame implements LibWindow {
     	
     	private void addLoginButtonListener(JButton butn) {
     		butn.addActionListener(evt -> {
-    			JOptionPane.showMessageDialog(this,"Successful Login");
+
+					String username = this.username.getText();
+					String password = this.password.getText();
+
+					if (username.isEmpty() || password.isEmpty()){
+						JOptionPane.showMessageDialog(this, "Invalid details");
+						return;
+					}
+
+				SystemController system = new SystemController();
+				try {
+					system.login(username,password);
+				} catch (LoginException e) {
+
+					displayMessage(e.getMessage());
+					return;
+				}
+				Auth userAuth = system.currentAuth;
+				if (userAuth != null){
+					INSTANCE.setVisible(false);
+
+					LibrarySystem.INSTANCE.init();
+					Util.centerFrameOnDesktop(LibrarySystem.INSTANCE);
+					LibrarySystem.INSTANCE.setVisible(true);
+				}
+
+//				JOptionPane.showMessageDialog(this,"Successful Login");
     				
     		});
     	}
+
+		void displayMessage(String message){
+			JOptionPane.showMessageDialog(this, message);
+		}
 	
         
     

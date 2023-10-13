@@ -45,7 +45,7 @@ public class LibrarySystem extends JFrame implements LibWindow {
 	}
 
 	private void setWindowProperties(){
-			            LibrarySystem.INSTANCE.setTitle("Library Project");
+				LibrarySystem.INSTANCE.setTitle("Library Project");
 	            LibrarySystem.INSTANCE.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	            LibrarySystem.INSTANCE.init();
@@ -71,6 +71,9 @@ public class LibrarySystem extends JFrame implements LibWindow {
 		//pack();
 		setSize(660,500);
 		isInitialized = true;
+
+		LibrarySystem.INSTANCE.setTitle("Library Project");
+		LibrarySystem.INSTANCE.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
     private void formatContentPane() {
