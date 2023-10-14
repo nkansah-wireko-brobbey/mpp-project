@@ -35,8 +35,8 @@ public class SystemController implements ControllerInterface {
 	}
 	@Override
 	public boolean memberIdExist(String id){
-
-		for (String anId: allMemberIds()
+		List<String> memberList = allMemberIds();
+		for (String anId: memberList
 			 ) {
 
 			if (anId.equals(id)){
@@ -72,7 +72,6 @@ public class SystemController implements ControllerInterface {
 		HashMap<String, LibraryMember> allMembers = da.readMemberMap();
 
 		List<LibraryMember> allMembersList = new ArrayList<>(allMembers.values());
-
 		return allMembersList;
 	}
 	

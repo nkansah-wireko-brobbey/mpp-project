@@ -22,71 +22,9 @@ public class AddMemberWindow extends JFrame implements LibWindow {
     JTextField id, fname, lname, tel, street, city, state, zip;
     JLabel idLabel, fnameLabel,lnameLabel, telLabel, streetLabel, cityLabel, stateLabel, zipLabel;
 
-
+    JButton submitButton;
     //
-    private void createForm() {
-        // Create the form panel with GridLayout
-        topPanel = new JPanel();
-        topPanel.setLayout(new GridLayout(0, 2)); // 2 columns for labels and text fields
-
-        // Initialize text fields and labels, and add them to the layout
-        idLabel = new JLabel("Member Label");
-        id = new JTextField(20);
-
-        fnameLabel = new JLabel("First Name");
-        fname = new JTextField(20);
-
-        lnameLabel = new JLabel("Last Name");
-        lname = new JTextField(20);
-
-        telLabel = new JLabel("Tel");
-        tel = new JTextField(20);
-
-        streetLabel = new JLabel("Street");
-        street = new JTextField(20);
-
-        cityLabel = new JLabel("City");
-        city = new JTextField(20);
-
-        stateLabel = new JLabel("State");
-        state = new JTextField(20);
-
-        zipLabel = new JLabel("Zip");
-        zip = new JTextField(20);
-
-        // Add labels and text fields to the panel
-        topPanel.add(idLabel);
-        topPanel.add(id);
-        topPanel.add(fnameLabel);
-        topPanel.add(fname);
-        topPanel.add(lnameLabel);
-        topPanel.add(lname);
-        topPanel.add(telLabel);
-        topPanel.add(tel);
-        topPanel.add(streetLabel);
-        topPanel.add(street);
-        topPanel.add(cityLabel);
-        topPanel.add(city);
-        topPanel.add(stateLabel);
-        topPanel.add(state);
-        topPanel.add(zipLabel);
-        topPanel.add(zip);
-
-        // Create and add the submit button
-        JButton submitButton = new JButton("Add Member");
-        topPanel.add(submitButton);
-
-        // Initialize the main panel
-        mainPanel = new JPanel();
-        mainPanel.setLayout(new BorderLayout());
-        mainPanel.add(topPanel);
-
-        var content = getContentPane();
-        content.setLayout(new BorderLayout());
-        content.add(mainPanel, BorderLayout.CENTER);
-        setFieldsEmpty();
-
-
+    void submitButtonActionListener(){
         submitButton.addActionListener((evt)->{
             String id = this.id.getText();
             String fname = this.fname.getText();
@@ -137,6 +75,69 @@ public class AddMemberWindow extends JFrame implements LibWindow {
 
 
         });
+    }
+    private void createForm() {
+        // Create the form panel with GridLayout
+        topPanel = new JPanel();
+        topPanel.setLayout(new GridLayout(0, 2)); // 2 columns for labels and text fields
+
+        // Initialize text fields and labels, and add them to the layout
+        idLabel = new JLabel("Member Label");
+        id = new JTextField(20);
+
+        fnameLabel = new JLabel("First Name");
+        fname = new JTextField(20);
+
+        lnameLabel = new JLabel("Last Name");
+        lname = new JTextField(20);
+
+        telLabel = new JLabel("Tel");
+        tel = new JTextField(20);
+
+        streetLabel = new JLabel("Street");
+        street = new JTextField(20);
+
+        cityLabel = new JLabel("City");
+        city = new JTextField(20);
+
+        stateLabel = new JLabel("State");
+        state = new JTextField(20);
+
+        zipLabel = new JLabel("Zip");
+        zip = new JTextField(20);
+
+        // Add labels and text fields to the panel
+        topPanel.add(idLabel);
+        topPanel.add(id);
+        topPanel.add(fnameLabel);
+        topPanel.add(fname);
+        topPanel.add(lnameLabel);
+        topPanel.add(lname);
+        topPanel.add(telLabel);
+        topPanel.add(tel);
+        topPanel.add(streetLabel);
+        topPanel.add(street);
+        topPanel.add(cityLabel);
+        topPanel.add(city);
+        topPanel.add(stateLabel);
+        topPanel.add(state);
+        topPanel.add(zipLabel);
+        topPanel.add(zip);
+
+        // Create and add the submit button
+         submitButton = new JButton("Add Member");
+        topPanel.add(submitButton);
+
+        // Initialize the main panel
+        mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout());
+        mainPanel.add(topPanel);
+
+        var content = getContentPane();
+        content.setLayout(new BorderLayout());
+        content.add(mainPanel, BorderLayout.CENTER);
+        setFieldsEmpty();
+        submitButtonActionListener();
     }
 
     private void setFieldsEmpty(){

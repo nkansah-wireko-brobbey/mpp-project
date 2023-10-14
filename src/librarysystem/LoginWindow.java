@@ -115,7 +115,7 @@ public class LoginWindow extends JFrame implements LibWindow {
     		
     		JButton backButton = new JButton("<= Back to Main");
     		addBackButtonListener(backButton);
-    		lowerHalf.add(backButton);
+    		//lowerHalf.add(backButton);
     		
     	}
     	private void defineTopPanel() {
