@@ -274,7 +274,7 @@ public class AddMemberWindow extends JFrame implements LibWindow {
                 sb.append(s + "\n");
             }
             System.out.println(sb.toString());
-            AllBookIdsWindow.INSTANCE.setData(sb.toString());
+//            AllBookIdsWindow.INSTANCE.setData(sb.toString());
             AllBookIdsWindow.INSTANCE.pack();
             //AllBookIdsWindow.INSTANCE.setSize(660,500);
             Util.centerFrameOnDesktop(AllBookIdsWindow.INSTANCE);

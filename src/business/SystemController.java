@@ -71,10 +71,11 @@ public class SystemController implements ControllerInterface {
 		return booksMap.get(isbn);
 	}
 
-	public void increaseBookCopies(){
-
+	public List<Book> getAllBooks(){
+		HashMap<String, Book> booksMap = da.readBooksMap();
+		List<Book> books = new ArrayList<>(booksMap.values());
+		return books;
 	}
-
 
 	
 	@Override
@@ -83,6 +84,27 @@ public class SystemController implements ControllerInterface {
 		List<String> retval = new ArrayList<>();
 		retval.addAll(da.readBooksMap().keySet());
 		return retval;
+	}
+
+	public boolean bookIdExists(String ISBN){
+		HashMap<String, Book> map = da.readBooksMap();
+		return map.containsKey(ISBN);
+	}
+
+	@Override
+	public Book getBook(String ISBN){
+		HashMap<String, Book> map = da.readBooksMap();
+		return map.get(ISBN);
+	}
+
+	public void saveBook(Book book){
+		da.saveBook(book);
+	}
+	public Book copyBook(String ISBN){
+		Book book = getBook(ISBN);
+		book.addCopy(); // duplicate the book
+		saveBook(book);
+		return book;
 	}
 
 //	public

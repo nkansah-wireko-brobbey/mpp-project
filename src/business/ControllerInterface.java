@@ -18,4 +18,12 @@ public interface ControllerInterface {
 					   String city, String zip, String state
 	) throws LibrarySystemException;
 	List<LibraryMember> getAllMembers();
+
+	public List<Book> getAllBooks();
+
+	public boolean bookIdExists(String ISBN);
+	public Book getBook(String ISBN);
+
+	public void saveBook(Book book);
+	public Book copyBook(String ISBN);
 }

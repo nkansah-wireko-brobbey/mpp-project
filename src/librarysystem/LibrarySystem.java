@@ -45,16 +45,7 @@ public class LibrarySystem extends JFrame implements LibWindow {
 		}
 	}
 
-	private void setWindowProperties(){
-				LibrarySystem.INSTANCE.setTitle("Library Project");
-	            LibrarySystem.INSTANCE.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-	            LibrarySystem.INSTANCE.init();
-
-//	            centerFrameOnDesktop(LibrarySystem.INSTANCE);
-//	            LibrarySystem.INSTANCE.setVisible(true);
-		Util.centerFrameOnDesktop(INSTANCE);
-	}
     
     private LibrarySystem() {
 
@@ -157,7 +148,7 @@ public class LibrarySystem extends JFrame implements LibWindow {
 				sb.append(s + "\n");
 			}
 			System.out.println(sb.toString());
-			AllBookIdsWindow.INSTANCE.setData(sb.toString());
+//			AllBookIdsWindow.INSTANCE.setData(sb.toString());
 			AllBookIdsWindow.INSTANCE.pack();
 			//AllBookIdsWindow.INSTANCE.setSize(660,500);
 			Util.centerFrameOnDesktop(AllBookIdsWindow.INSTANCE);

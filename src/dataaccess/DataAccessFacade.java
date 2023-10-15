@@ -82,6 +82,12 @@ public class DataAccessFacade implements DataAccess {
 		memberList.forEach(member -> members.put(member.getMemberId(), member));
 		saveToStorage(StorageType.MEMBERS, members);
 	}
+
+	public void saveBook(Book book) {
+		HashMap<String, Book> books = readBooksMap();
+		books.put(book.getIsbn(), book);
+		saveToStorage(StorageType.BOOKS, books);
+	}
 	
 	static void saveToStorage(StorageType type, Object ob) {
 		ObjectOutputStream out = null;

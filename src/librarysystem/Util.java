@@ -8,8 +8,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import javax.swing.JLabel;
-
+import javax.swing.*;
 
 
 public class Util {
@@ -72,5 +71,9 @@ public class Util {
 		int frameHeight = f.getSize().height;
 		int frameWidth = f.getSize().width;
 		f.setLocation(((width - frameWidth) / 2), (height - frameHeight) / 3);
+	}
+
+	public static void displayMessage(String s){
+		JOptionPane.showMessageDialog(null, s);
 	}
 }
