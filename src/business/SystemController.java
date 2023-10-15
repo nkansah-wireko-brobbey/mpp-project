@@ -63,6 +63,18 @@ public class SystemController implements ControllerInterface {
 
 	}
 
+	public Book getBookByISBN(String isbn) throws LibrarySystemException{
+		HashMap<String, Book> booksMap = da.readBooksMap();
+		if(booksMap.get(isbn)==(null)){
+			throw new LibrarySystemException("ISBN not found");
+		}
+		return booksMap.get(isbn);
+	}
+
+	public void increaseBookCopies(){
+
+	}
+
 
 	
 	@Override
