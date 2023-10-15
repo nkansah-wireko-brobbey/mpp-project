@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 public class AddMemberWindow extends JFrame implements LibWindow {
@@ -55,12 +56,16 @@ public class AddMemberWindow extends JFrame implements LibWindow {
                 return;
 
             }
+            CreateMemberDto request = new CreateMemberDto();
 
-            Address newMemberAddress = new Address(street,city, state,zip);
-            LibraryMember newLibraryMember = new LibraryMember(id,fname,lname,tel,newMemberAddress);
 
-            try {
-                ci.saveNewMember(newLibraryMember);
+            String[] arrUserInputs = {street,city,state,zip,id,fname,lname,tel};
+
+
+
+
+           try {
+                ci.saveNewMember(fname, lname, id,tel,street,city,zip,state);
                 JOptionPane.showMessageDialog(this, "" +
                         "Member Added Successfully" +
                         " and memberId");

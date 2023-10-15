@@ -215,15 +215,6 @@ public class AllMemberIdsWindow extends JFrame implements LibWindow {
 		isInitialized = val;
 	}
 
-	public static void main(String[] args) {
 
-		SwingUtilities.invokeLater(() -> {
-			AllMemberIdsWindow.INSTANCE.init();
-			AllMemberIdsWindow.INSTANCE.setTitle("All Member IDs");
-			AllMemberIdsWindow.INSTANCE.pack();
-			AllMemberIdsWindow.INSTANCE.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			AllMemberIdsWindow.INSTANCE.setVisible(true);
-		});
-	}
 }
 

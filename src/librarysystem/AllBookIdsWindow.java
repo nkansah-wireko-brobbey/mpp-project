@@ -22,7 +22,7 @@ public class AllBookIdsWindow extends JFrame implements LibWindow {
 	public static final AllBookIdsWindow INSTANCE = new AllBookIdsWindow();
     ControllerInterface ci = new SystemController();
     private boolean isInitialized = false;
-	
+	//somthing
 	private JPanel mainPanel;
 	private JPanel topPanel;
 	private JPanel middlePanel;

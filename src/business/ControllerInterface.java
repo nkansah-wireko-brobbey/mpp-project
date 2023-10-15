@@ -12,6 +12,10 @@ public interface ControllerInterface {
 	public List<String> allMemberIds();
 	public List<String> allBookIds();
 	boolean memberIdExist(String id);
-	void saveNewMember(LibraryMember libraryMember) throws LibrarySystemException;
+//	void saveNewMember(LibraryMember libraryMember) throws LibrarySystemException;
+	void saveNewMember(String fname, String lname,
+					   String id, String tel, String street,
+					   String city, String zip, String state
+	) throws LibrarySystemException;
 	List<LibraryMember> getAllMembers();
 }

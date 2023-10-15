@@ -48,14 +48,21 @@ public class SystemController implements ControllerInterface {
 		return true;
 	}
 
-	public void saveNewMember(LibraryMember libraryMember) throws LibrarySystemException {
+	public void saveNewMember(String fname, String lname,
+							  String id, String tel, String street,
+							  String city, String zip, String state
+							  ) throws LibrarySystemException {
+
 		try{
-			da.saveNewMember(libraryMember);
+			Address newMemberAddress = new Address(street,city, state,zip);
+			LibraryMember newLibraryMember = new LibraryMember(id,fname,lname,tel,newMemberAddress);
+			da.saveNewMember(newLibraryMember);
 		}catch (Exception e){
 			throw new LibrarySystemException("Cannot Save");
 		}
 
 	}
+
 
 	
 	@Override

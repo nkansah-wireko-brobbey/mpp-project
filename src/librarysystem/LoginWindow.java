@@ -202,7 +202,8 @@ public class LoginWindow extends JFrame implements LibWindow {
 						return;
 					}
 
-				SystemController system = new SystemController();
+				ControllerInterface system = new SystemController();
+
 				try {
 					system.login(username,password);
 				} catch (LoginException e) {
@@ -210,7 +211,7 @@ public class LoginWindow extends JFrame implements LibWindow {
 					displayMessage(e.getMessage());
 					return;
 				}
-				Auth userAuth = system.currentAuth;
+				Auth userAuth = SystemController.currentAuth;
 				if (userAuth != null){
 					INSTANCE.setVisible(false);
 
