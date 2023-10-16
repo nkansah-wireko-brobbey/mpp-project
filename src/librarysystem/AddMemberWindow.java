@@ -241,7 +241,7 @@ public class AddMemberWindow extends JFrame implements LibWindow {
         });
 
 
-        options.add(login);
+//        options.add(login);
         options.add(allBookIds);
         options.add(allMemberIds);
         options.add(addMember);

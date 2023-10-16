@@ -15,6 +15,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import business.Checkout;
 import business.ControllerInterface;
 import business.SystemController;
 
@@ -25,7 +26,7 @@ public class LibrarySystem extends JFrame implements LibWindow {
 	JPanel mainPanel;
 	JMenuBar menuBar;
     JMenu options;
-    JMenuItem login, allBookIds, allMemberIds, addMember;
+    JMenuItem login, allBookIds, allMemberIds, addMember, checkOut;
     String pathToImage;
     private boolean isInitialized = false;
     
@@ -100,6 +101,20 @@ public class LibrarySystem extends JFrame implements LibWindow {
  	   allMemberIds = new JMenuItem("All Member Ids");
  	   allMemberIds.addActionListener(new AllMemberIdsListener());
 		addMember= new JMenuItem("Add Member");
+		checkOut = new JMenuItem("Checkout Book");
+		checkOut.addActionListener(e -> {
+
+				LibrarySystem.hideAllWindows();
+//				AddMemberWindow.INSTANCE.init();
+//
+//				Util.centerFrameOnDesktop(LoginWindow.INSTANCE);
+//				AddMemberWindow.INSTANCE.setVisible(true);
+				setVisible(false);
+				BookCheckout newWindow = new BookCheckout();
+				Util.centerFrameOnDesktop(newWindow);
+				newWindow.setVisible(true);
+
+		});
 		addMember.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -116,7 +131,7 @@ public class LibrarySystem extends JFrame implements LibWindow {
 		});
 
 
- 	   options.add(login);
+ 	   options.add(checkOut);
  	   options.add(allBookIds);
  	   options.add(allMemberIds);
 		options.add(addMember);

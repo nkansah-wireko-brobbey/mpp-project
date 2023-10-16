@@ -26,4 +26,5 @@ public interface ControllerInterface {
 
 	public void saveBook(Book book);
 	public Book copyBook(String ISBN);
+	public void checkBook(String memberId, String isbn) throws LibrarySystemException;
 }

@@ -1,7 +1,9 @@
 package business;
 
+import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.IllegalFormatCodePointException;
 import java.util.List;
 
 import dataaccess.Auth;
@@ -115,5 +117,41 @@ public class SystemController implements ControllerInterface {
 		List<LibraryMember> allMembersList = new ArrayList<>(allMembers.values());
 		return allMembersList;
 	}
-	
+	public void checkBook(String memberId, String isbn) throws LibrarySystemException {
+		DataAccess da = new DataAccessFacade();
+
+		if (memberIdExist(memberId) && bookIdExists(isbn)){
+
+		//search member from data storage
+		LibraryMember member = this.getMemberById(memberId);
+
+
+		//search book from storage using ISBN
+		Book book = getBookByISBN(isbn);
+		if (book == null) {
+			throw new LibrarySystemException("Book with ISBN: " + isbn + " not found.");
+		}
+		//Check if the book is available
+		if (!book.isAvailable()) {
+			throw new LibrarySystemException("Book is not available for checkout");
+		}
+
+		//call nextNextAvailableCopy
+		BookCopy copy = book.getNextAvailableCopy();
+
+		member.checkout(copy, book.getMaxCheckoutLength());
+		//save member
+		da.saveNewMember(member);
+		// save book
+		da.saveBook(book);
+		}else {
+			System.out.println("Err");
+		}
+	}
+	public LibraryMember getMemberById(String memberId){
+		DataAccess da = new DataAccessFacade();
+		HashMap<String, LibraryMember> members = da.readMemberMap();
+
+		return members.get(memberId);
+	}
 }
